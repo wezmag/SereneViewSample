@@ -17,5 +17,33 @@ namespace SereneViewSample.ProjectMgnt
              : base(context)
         {
         }
+
+        protected override void AfterSave()
+        {
+            base.AfterSave();
+            if (this.IsCreate)
+            {
+                new ProjectAddOnSaveHandler(Context).Process(UnitOfWork, new SaveRequest<ProjectAddOnRow>() {
+                    Entity = new ProjectAddOnRow
+                    {
+                        ProjectId = Row.Id,
+                        Description = Row.Description
+                    }
+                }, SaveRequestType.Create);
+            }
+            if (this.IsUpdate)
+            {
+                var projectAddOnRow = Connection.TrySingle<ProjectAddOnRow>(new Criteria(ProjectAddOnRow.Fields.ProjectId) == this.Row.Id.Value);
+                if (projectAddOnRow != null)
+                {
+                    projectAddOnRow.Description = this.Row.Description;
+                    new ProjectAddOnSaveHandler(Context).Process(UnitOfWork, new SaveRequest<ProjectAddOnRow>()
+                    {
+                        Entity = projectAddOnRow,
+                        EntityId = projectAddOnRow.Id.Value
+                    }, SaveRequestType.Update);
+                }
+            }
+        }
     }
 }

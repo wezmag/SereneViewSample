@@ -17,5 +17,18 @@ namespace SereneViewSample.ProjectMgnt
              : base(context)
         {
         }
+
+        protected override void ExecuteDelete()
+        {
+            var projectAddOnRow = Connection.TrySingle<ProjectAddOnRow>(new Criteria(ProjectAddOnRow.Fields.ProjectId) == this.Row.Id.Value);
+            if (projectAddOnRow != null)
+            {
+                new ProjectAddOnDeleteHandler(Context).Process(this.UnitOfWork, new MyRequest
+                {
+                    EntityId = projectAddOnRow.Id.Value
+                });
+            }
+            base.ExecuteDelete();
+        }
     }
 }

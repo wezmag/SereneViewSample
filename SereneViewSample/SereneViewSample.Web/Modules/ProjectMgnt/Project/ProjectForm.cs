@@ -13,7 +13,11 @@ namespace SereneViewSample.ProjectMgnt.Forms
     public class ProjectForm
     {
         public string ProjectName { get; set; }
-        
+
+        [DisplayName("Description")]
+        [TextAreaEditor(Rows = 3)]
+        public string Description { get; set; }
+
         [LookupEditor(typeof(MemberMgnt.MemberRow), Multiple = true)]
         public List<int> MemberList { get; set; }
         

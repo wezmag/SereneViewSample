@@ -2,6 +2,7 @@
     export interface ProjectRow {
         Id?: number;
         ProjectName?: string;
+        Description?: string;
         MemberList?: number[];
         ProjectHistories?: ProjectHistoryRow[];
     }
@@ -18,6 +19,7 @@
         export declare const enum Fields {
             Id = "Id",
             ProjectName = "ProjectName",
+            Description = "Description",
             MemberList = "MemberList",
             ProjectHistories = "ProjectHistories"
         }

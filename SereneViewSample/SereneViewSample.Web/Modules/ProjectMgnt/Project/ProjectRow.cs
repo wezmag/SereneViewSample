@@ -13,6 +13,7 @@ namespace SereneViewSample.ProjectMgnt
     [DisplayName("Project"), InstanceName("Project")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LeftJoin("jProjectAddOn", "[dbo].[ProjectAddOn]", "T0.Id = jProjectAddOn.ProjectId")]
     public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity, IdProperty]
@@ -27,6 +28,14 @@ namespace SereneViewSample.ProjectMgnt
         {
             get => fields.ProjectName[this];
             set => fields.ProjectName[this] = value;
+        }
+
+        [DisplayName("Description"), Size(200), NotNull]
+        [Expression("jProjectAddOn.[Description]")]
+        public string Description
+        {
+            get => fields.Description[this];
+            set => fields.Description[this] = value;
         }
 
         [DisplayName("Members")]
@@ -61,6 +70,8 @@ namespace SereneViewSample.ProjectMgnt
         {
             public Int32Field Id;
             public StringField ProjectName;
+
+            public StringField Description;
 
             public ListField<int> MemberList;
 
