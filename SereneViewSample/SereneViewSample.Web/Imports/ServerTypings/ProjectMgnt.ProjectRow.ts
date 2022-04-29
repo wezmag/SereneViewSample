@@ -2,6 +2,7 @@
     export interface ProjectRow {
         Id?: number;
         ProjectName?: string;
+        MemberList?: number[];
     }
 
     export namespace ProjectRow {
@@ -15,7 +16,8 @@
 
         export declare const enum Fields {
             Id = "Id",
-            ProjectName = "ProjectName"
+            ProjectName = "ProjectName",
+            MemberList = "MemberList"
         }
     }
 }

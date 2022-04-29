@@ -8,6 +8,11 @@
         export const idProperty = 'Id';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'MemberMgnt.Member';
+        export const lookupKey = 'MemberMgnt.Member';
+
+        export function getLookup(): Q.Lookup<MemberRow> {
+            return Q.getLookup<MemberRow>('MemberMgnt.Member');
+        }
         export const deletePermission = 'Administration:General';
         export const insertPermission = 'Administration:General';
         export const readPermission = 'Administration:General';

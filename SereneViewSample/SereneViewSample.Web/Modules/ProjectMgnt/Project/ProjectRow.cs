@@ -3,6 +3,7 @@ using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 
@@ -28,6 +29,16 @@ namespace SereneViewSample.ProjectMgnt
             set => fields.ProjectName[this] = value;
         }
 
+        [DisplayName("Members")]
+        [LinkingSetRelation(typeof(ProjectMembersRow), 
+            nameof(ProjectMembersRow.Fields.ProjectId),
+            nameof(ProjectMembersRow.Fields.MemberId))]
+        public List<int> MemberList
+        {
+            get => fields.MemberList[this];
+            set => fields.MemberList[this] = value;
+        }
+
         public ProjectRow()
             : base()
         {
@@ -42,6 +53,8 @@ namespace SereneViewSample.ProjectMgnt
         {
             public Int32Field Id;
             public StringField ProjectName;
+
+            public ListField<int> MemberList;
         }
     }
 }

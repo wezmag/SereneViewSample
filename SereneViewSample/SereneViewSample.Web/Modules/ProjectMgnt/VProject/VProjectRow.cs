@@ -9,7 +9,7 @@ using System.IO;
 namespace SereneViewSample.ProjectMgnt
 {
     [ConnectionKey("Default"), Module("ProjectMgnt"), TableName("[dbo].[ViewProjects]")]
-    [DisplayName("V Project"), InstanceName("V Project")]
+    [DisplayName("Project"), InstanceName("Project")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
     public sealed class VProjectRow : Row<VProjectRow.RowFields>, IIdRow, INameRow

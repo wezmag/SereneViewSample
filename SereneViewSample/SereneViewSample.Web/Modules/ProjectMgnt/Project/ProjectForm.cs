@@ -13,5 +13,8 @@ namespace SereneViewSample.ProjectMgnt.Forms
     public class ProjectForm
     {
         public string ProjectName { get; set; }
+        
+        [LookupEditor(typeof(MemberMgnt.MemberRow), Multiple = true)]
+        public List<int> MemberList { get; set; }
     }
 }

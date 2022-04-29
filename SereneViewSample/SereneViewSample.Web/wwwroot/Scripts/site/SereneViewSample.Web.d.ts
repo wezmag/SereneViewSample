@@ -427,6 +427,8 @@ declare namespace SereneViewSample.MemberMgnt {
         const idProperty = "Id";
         const nameProperty = "Name";
         const localTextPrefix = "MemberMgnt.Member";
+        const lookupKey = "MemberMgnt.Member";
+        function getLookup(): Q.Lookup<MemberRow>;
         const deletePermission = "Administration:General";
         const insertPermission = "Administration:General";
         const readPermission = "Administration:General";
@@ -608,6 +610,7 @@ declare namespace SereneViewSample.ProjectMgnt {
 declare namespace SereneViewSample.ProjectMgnt {
     interface ProjectForm {
         ProjectName: Serenity.StringEditor;
+        MemberList: Serenity.LookupEditor;
     }
     class ProjectForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -735,6 +738,7 @@ declare namespace SereneViewSample.ProjectMgnt {
     interface ProjectRow {
         Id?: number;
         ProjectName?: string;
+        MemberList?: number[];
     }
     namespace ProjectRow {
         const idProperty = "Id";
@@ -746,7 +750,8 @@ declare namespace SereneViewSample.ProjectMgnt {
         const updatePermission = "Administration:General";
         const enum Fields {
             Id = "Id",
-            ProjectName = "ProjectName"
+            ProjectName = "ProjectName",
+            MemberList = "MemberList"
         }
     }
 }
@@ -1211,7 +1216,7 @@ declare namespace SereneViewSample.ProjectMgnt {
 declare namespace SereneViewSample.ProjectMgnt {
     class VProjectGrid extends Serenity.EntityGrid<VProjectRow, any> {
         protected getColumnsKey(): string;
-        protected getDialogType(): typeof VProjectDialog;
+        protected getDialogType(): typeof ProjectDialog;
         protected getIdProperty(): string;
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;

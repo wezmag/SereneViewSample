@@ -12,6 +12,7 @@ namespace SereneViewSample.MemberMgnt
     [DisplayName("Member"), InstanceName("Member")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [LookupScript]
     public sealed class MemberRow : Row<MemberRow.RowFields>, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity, IdProperty]
