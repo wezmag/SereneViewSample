@@ -41,6 +41,12 @@
           "Identifier": "ProjectMembers",
           "Module": "ProjectMgnt",
           "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.ViewProjects",
+          "Identifier": "VProject",
+          "Module": "ProjectMgnt",
+          "PermissionKey": "Administration:General"
         }
       ]
     }

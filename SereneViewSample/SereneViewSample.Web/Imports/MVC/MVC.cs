@@ -101,6 +101,11 @@ namespace MVC
             {
                 public const string ProjectMembersIndex = "~/Modules/ProjectMgnt/ProjectMembers/ProjectMembersIndex.cshtml";
             }
+
+            public static class VProject
+            {
+                public const string VProjectIndex = "~/Modules/ProjectMgnt/VProject/VProjectIndex.cshtml";
+            }
         }
 
         public static class Shared
