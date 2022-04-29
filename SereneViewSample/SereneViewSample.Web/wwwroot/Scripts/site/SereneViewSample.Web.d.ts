@@ -403,6 +403,57 @@ declare namespace SereneViewSample.Administration {
         }
     }
 }
+declare namespace SereneViewSample.MemberMgnt {
+    class MemberColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace SereneViewSample.MemberMgnt {
+    interface MemberForm {
+        Name: Serenity.StringEditor;
+    }
+    class MemberForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneViewSample.MemberMgnt {
+    interface MemberRow {
+        Id?: number;
+        Name?: string;
+    }
+    namespace MemberRow {
+        const idProperty = "Id";
+        const nameProperty = "Name";
+        const localTextPrefix = "MemberMgnt.Member";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Name = "Name"
+        }
+    }
+}
+declare namespace SereneViewSample.MemberMgnt {
+    namespace MemberService {
+        const baseUrl = "MemberMgnt/Member";
+        function Create(request: Serenity.SaveRequest<MemberRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MemberRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MemberRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MemberRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "MemberMgnt/Member/Create",
+            Update = "MemberMgnt/Member/Update",
+            Delete = "MemberMgnt/Member/Delete",
+            Retrieve = "MemberMgnt/Member/Retrieve",
+            List = "MemberMgnt/Member/List"
+        }
+    }
+}
 declare namespace SereneViewSample.Membership {
     interface ChangePasswordForm {
         OldPassword: Serenity.PasswordEditor;
@@ -491,6 +542,229 @@ declare namespace SereneViewSample.Membership {
         DisplayName?: string;
         Email?: string;
         Password?: string;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectAddOnColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectAddOnForm {
+        Description: Serenity.StringEditor;
+        ProjectId: Serenity.IntegerEditor;
+    }
+    class ProjectAddOnForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectAddOnRow {
+        Id?: number;
+        Description?: string;
+        ProjectId?: number;
+        ProjectProjectName?: string;
+    }
+    namespace ProjectAddOnRow {
+        const idProperty = "Id";
+        const nameProperty = "Description";
+        const localTextPrefix = "ProjectMgnt.ProjectAddOn";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Description = "Description",
+            ProjectId = "ProjectId",
+            ProjectProjectName = "ProjectProjectName"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    namespace ProjectAddOnService {
+        const baseUrl = "ProjectMgnt/ProjectAddOn";
+        function Create(request: Serenity.SaveRequest<ProjectAddOnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProjectAddOnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProjectAddOnRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProjectAddOnRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "ProjectMgnt/ProjectAddOn/Create",
+            Update = "ProjectMgnt/ProjectAddOn/Update",
+            Delete = "ProjectMgnt/ProjectAddOn/Delete",
+            Retrieve = "ProjectMgnt/ProjectAddOn/Retrieve",
+            List = "ProjectMgnt/ProjectAddOn/List"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectForm {
+        ProjectName: Serenity.StringEditor;
+    }
+    class ProjectForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectHistoryColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectHistoryForm {
+        EventDate: Serenity.DateEditor;
+        EventDescription: Serenity.StringEditor;
+        ProjectId: Serenity.IntegerEditor;
+    }
+    class ProjectHistoryForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectHistoryRow {
+        Id?: number;
+        EventDate?: string;
+        EventDescription?: string;
+        ProjectId?: number;
+        ProjectProjectName?: string;
+    }
+    namespace ProjectHistoryRow {
+        const idProperty = "Id";
+        const nameProperty = "EventDescription";
+        const localTextPrefix = "ProjectMgnt.ProjectHistory";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            EventDate = "EventDate",
+            EventDescription = "EventDescription",
+            ProjectId = "ProjectId",
+            ProjectProjectName = "ProjectProjectName"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    namespace ProjectHistoryService {
+        const baseUrl = "ProjectMgnt/ProjectHistory";
+        function Create(request: Serenity.SaveRequest<ProjectHistoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProjectHistoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProjectHistoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProjectHistoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "ProjectMgnt/ProjectHistory/Create",
+            Update = "ProjectMgnt/ProjectHistory/Update",
+            Delete = "ProjectMgnt/ProjectHistory/Delete",
+            Retrieve = "ProjectMgnt/ProjectHistory/Retrieve",
+            List = "ProjectMgnt/ProjectHistory/List"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectMembersColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectMembersForm {
+        MemberId: Serenity.IntegerEditor;
+        ProjectId: Serenity.IntegerEditor;
+    }
+    class ProjectMembersForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectMembersRow {
+        Id?: number;
+        MemberId?: number;
+        ProjectId?: number;
+        MemberName?: string;
+        ProjectProjectName?: string;
+    }
+    namespace ProjectMembersRow {
+        const idProperty = "Id";
+        const localTextPrefix = "ProjectMgnt.ProjectMembers";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            MemberId = "MemberId",
+            ProjectId = "ProjectId",
+            MemberName = "MemberName",
+            ProjectProjectName = "ProjectProjectName"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    namespace ProjectMembersService {
+        const baseUrl = "ProjectMgnt/ProjectMembers";
+        function Create(request: Serenity.SaveRequest<ProjectMembersRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProjectMembersRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProjectMembersRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProjectMembersRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "ProjectMgnt/ProjectMembers/Create",
+            Update = "ProjectMgnt/ProjectMembers/Update",
+            Delete = "ProjectMgnt/ProjectMembers/Delete",
+            Retrieve = "ProjectMgnt/ProjectMembers/Retrieve",
+            List = "ProjectMgnt/ProjectMembers/List"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    interface ProjectRow {
+        Id?: number;
+        ProjectName?: string;
+    }
+    namespace ProjectRow {
+        const idProperty = "Id";
+        const nameProperty = "ProjectName";
+        const localTextPrefix = "ProjectMgnt.Project";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            ProjectName = "ProjectName"
+        }
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    namespace ProjectService {
+        const baseUrl = "ProjectMgnt/Project";
+        function Create(request: Serenity.SaveRequest<ProjectRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProjectRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProjectRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProjectRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "ProjectMgnt/Project/Create",
+            Update = "ProjectMgnt/Project/Update",
+            Delete = "ProjectMgnt/Project/Delete",
+            Retrieve = "ProjectMgnt/Project/Retrieve",
+            List = "ProjectMgnt/Project/List"
+        }
     }
 }
 declare namespace SereneViewSample {
@@ -699,6 +973,30 @@ declare namespace SereneViewSample.Common {
         protected updateMatchFlags(text: string): void;
     }
 }
+declare namespace SereneViewSample.MemberMgnt {
+    class MemberDialog extends Serenity.EntityDialog<MemberRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: MemberForm;
+    }
+}
+declare namespace SereneViewSample.MemberMgnt {
+    class MemberGrid extends Serenity.EntityGrid<MemberRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MemberDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
 declare namespace SereneViewSample.Membership {
     class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
         protected getFormKey(): string;
@@ -733,6 +1031,101 @@ declare namespace SereneViewSample.Membership {
     class SignUpPanel extends Serenity.PropertyPanel<SignUpRequest, any> {
         protected getFormKey(): string;
         private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectDialog extends Serenity.EntityDialog<ProjectRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ProjectForm;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectGrid extends Serenity.EntityGrid<ProjectRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProjectDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectAddOnDialog extends Serenity.EntityDialog<ProjectAddOnRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ProjectAddOnForm;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectAddOnGrid extends Serenity.EntityGrid<ProjectAddOnRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProjectAddOnDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectHistoryDialog extends Serenity.EntityDialog<ProjectHistoryRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ProjectHistoryForm;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectHistoryGrid extends Serenity.EntityGrid<ProjectHistoryRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProjectHistoryDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectMembersDialog extends Serenity.EntityDialog<ProjectMembersRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ProjectMembersForm;
+    }
+}
+declare namespace SereneViewSample.ProjectMgnt {
+    class ProjectMembersGrid extends Serenity.EntityGrid<ProjectMembersRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProjectMembersDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
         constructor(container: JQuery);
     }
 }

@@ -1,4 +1,4 @@
-﻿{
+{
   "RootNamespace": "SereneViewSample",
   "ServerTypings": {
     "LocalTexts": true
@@ -8,6 +8,43 @@
       "/wwwroot/Scripts/serenity/Serenity.CoreLib*.*"
     ]
   },
+  "Connections": [
+    {
+      "Key": "Default",
+      "Tables": [
+        {
+          "Tablename": "dbo.Member",
+          "Identifier": "Member",
+          "Module": "MemberMgnt",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Project",
+          "Identifier": "Project",
+          "Module": "ProjectMgnt",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.ProjectAddOn",
+          "Identifier": "ProjectAddOn",
+          "Module": "ProjectMgnt",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.ProjectHistory",
+          "Identifier": "ProjectHistory",
+          "Module": "ProjectMgnt",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.ProjectMembers",
+          "Identifier": "ProjectMembers",
+          "Module": "ProjectMgnt",
+          "PermissionKey": "Administration:General"
+        }
+      ]
+    }
+  ],
   "UpgradeInfo": {
     "InitialType": "Community",
     "InitialVersion": "5.2.4.0"

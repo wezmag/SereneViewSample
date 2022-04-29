@@ -3,6 +3,7 @@ using Serenity.Extensions;
 
 namespace SereneViewSample.Migrations.DefaultDB
 {
+    [Migration(20220429_140400)]
     public class DefaultDB_20220429_140400_AddTables : Migration
     {
         public override void Down()

@@ -41,6 +41,15 @@ namespace MVC
             public const string ValidationError = "~/Views/Errors/ValidationError.cshtml";
         }
 
+        public static class MemberMgnt
+        {
+            public static class Member
+            {
+                public const string MemberIndex = "~/Modules/MemberMgnt/Member/MemberIndex.cshtml";
+            }
+
+        }
+
         public static class Membership
         {
             public static class Account
@@ -67,6 +76,30 @@ namespace MVC
                     public const string AccountActivateEmail = "~/Modules/Membership/Account/SignUp/AccountActivateEmail.cshtml";
                     public const string AccountSignUp = "~/Modules/Membership/Account/SignUp/AccountSignUp.cshtml";
                 }
+            }
+
+        }
+
+        public static class ProjectMgnt
+        {
+            public static class Project
+            {
+                public const string ProjectIndex = "~/Modules/ProjectMgnt/Project/ProjectIndex.cshtml";
+            }
+
+            public static class ProjectAddOn
+            {
+                public const string ProjectAddOnIndex = "~/Modules/ProjectMgnt/ProjectAddOn/ProjectAddOnIndex.cshtml";
+            }
+
+            public static class ProjectHistory
+            {
+                public const string ProjectHistoryIndex = "~/Modules/ProjectMgnt/ProjectHistory/ProjectHistoryIndex.cshtml";
+            }
+
+            public static class ProjectMembers
+            {
+                public const string ProjectMembersIndex = "~/Modules/ProjectMgnt/ProjectMembers/ProjectMembersIndex.cshtml";
             }
         }
 
