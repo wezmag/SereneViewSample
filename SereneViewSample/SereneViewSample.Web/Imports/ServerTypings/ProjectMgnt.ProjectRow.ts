@@ -3,6 +3,7 @@
         Id?: number;
         ProjectName?: string;
         MemberList?: number[];
+        ProjectHistories?: ProjectHistoryRow[];
     }
 
     export namespace ProjectRow {
@@ -17,7 +18,8 @@
         export declare const enum Fields {
             Id = "Id",
             ProjectName = "ProjectName",
-            MemberList = "MemberList"
+            MemberList = "MemberList",
+            ProjectHistories = "ProjectHistories"
         }
     }
 }

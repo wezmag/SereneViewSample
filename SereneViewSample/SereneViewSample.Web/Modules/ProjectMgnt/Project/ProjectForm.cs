@@ -16,5 +16,8 @@ namespace SereneViewSample.ProjectMgnt.Forms
         
         [LookupEditor(typeof(MemberMgnt.MemberRow), Multiple = true)]
         public List<int> MemberList { get; set; }
+        
+        [ProjectHistoryEditor]        
+        public List<ProjectHistoryRow> ProjectHistories { get; set; }
     }
 }

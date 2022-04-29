@@ -39,6 +39,14 @@ namespace SereneViewSample.ProjectMgnt
             set => fields.MemberList[this] = value;
         }
 
+        [DisplayName("Histories")]
+        [MasterDetailRelation("ProjectId")]
+        public List<ProjectHistoryRow> ProjectHistories
+        {
+            get => fields.ProjectHistories[this];
+            set => fields.ProjectHistories[this] = value;
+        }
+
         public ProjectRow()
             : base()
         {
@@ -55,6 +63,8 @@ namespace SereneViewSample.ProjectMgnt
             public StringField ProjectName;
 
             public ListField<int> MemberList;
+
+            public RowListField<ProjectHistoryRow> ProjectHistories;
         }
     }
 }
