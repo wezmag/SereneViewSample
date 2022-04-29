@@ -87,21 +87,6 @@ namespace MVC
                 public const string ProjectIndex = "~/Modules/ProjectMgnt/Project/ProjectIndex.cshtml";
             }
 
-            public static class ProjectAddOn
-            {
-                public const string ProjectAddOnIndex = "~/Modules/ProjectMgnt/ProjectAddOn/ProjectAddOnIndex.cshtml";
-            }
-
-            public static class ProjectHistory
-            {
-                public const string ProjectHistoryIndex = "~/Modules/ProjectMgnt/ProjectHistory/ProjectHistoryIndex.cshtml";
-            }
-
-            public static class ProjectMembers
-            {
-                public const string ProjectMembersIndex = "~/Modules/ProjectMgnt/ProjectMembers/ProjectMembersIndex.cshtml";
-            }
-
             public static class VProject
             {
                 public const string VProjectIndex = "~/Modules/ProjectMgnt/VProject/VProjectIndex.cshtml";
