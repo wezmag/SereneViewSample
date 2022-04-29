@@ -15,6 +15,9 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\**\*.sql" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <Compile Remove="Modules\ProjectMgnt\VProject\RequestHandlers\VProjectDeleteHandler.cs" />
+    <Compile Remove="Modules\ProjectMgnt\VProject\RequestHandlers\VProjectRetrieveHandler.cs" />
+    <Compile Remove="Modules\ProjectMgnt\VProject\RequestHandlers\VProjectSaveHandler.cs" />
     <None Update="wwwroot\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

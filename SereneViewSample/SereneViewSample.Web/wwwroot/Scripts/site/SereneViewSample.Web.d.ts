@@ -571,11 +571,6 @@ declare namespace SereneViewSample.ProjectMgnt {
     }
 }
 declare namespace SereneViewSample.ProjectMgnt {
-    class ProjectColumns {
-        static columnsKey: string;
-    }
-}
-declare namespace SereneViewSample.ProjectMgnt {
     interface ProjectForm {
         ProjectName: Serenity.StringEditor;
         Description: Serenity.TextAreaEditor;
@@ -685,34 +680,17 @@ declare namespace SereneViewSample.ProjectMgnt {
         function Update(request: Serenity.SaveRequest<ProjectRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProjectRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProjectRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "ProjectMgnt/Project/Create",
             Update = "ProjectMgnt/Project/Update",
             Delete = "ProjectMgnt/Project/Delete",
-            Retrieve = "ProjectMgnt/Project/Retrieve",
-            List = "ProjectMgnt/Project/List"
+            Retrieve = "ProjectMgnt/Project/Retrieve"
         }
     }
 }
 declare namespace SereneViewSample.ProjectMgnt {
     class VProjectColumns {
         static columnsKey: string;
-    }
-}
-declare namespace SereneViewSample.ProjectMgnt {
-    interface VProjectForm {
-        ProjectName: Serenity.StringEditor;
-        ProjectAddOnId: Serenity.IntegerEditor;
-        Description: Serenity.StringEditor;
-        EventDate: Serenity.DateEditor;
-        EventDescription: Serenity.StringEditor;
-        MemberCount: Serenity.IntegerEditor;
-    }
-    class VProjectForm extends Serenity.PrefixedContext {
-        static formKey: string;
-        private static init;
-        constructor(prefix: string);
     }
 }
 declare namespace SereneViewSample.ProjectMgnt {
@@ -747,16 +725,8 @@ declare namespace SereneViewSample.ProjectMgnt {
 declare namespace SereneViewSample.ProjectMgnt {
     namespace VProjectService {
         const baseUrl = "ProjectMgnt/VProject";
-        function Create(request: Serenity.SaveRequest<VProjectRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<VProjectRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<VProjectRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VProjectRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
-            Create = "ProjectMgnt/VProject/Create",
-            Update = "ProjectMgnt/VProject/Update",
-            Delete = "ProjectMgnt/VProject/Delete",
-            Retrieve = "ProjectMgnt/VProject/Retrieve",
             List = "ProjectMgnt/VProject/List"
         }
     }
@@ -1042,17 +1012,6 @@ declare namespace SereneViewSample.ProjectMgnt {
     }
 }
 declare namespace SereneViewSample.ProjectMgnt {
-    class ProjectGrid extends Serenity.EntityGrid<ProjectRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof ProjectDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace SereneViewSample.ProjectMgnt {
     class ProjectHistoryEditor extends Serenity.Extensions.GridEditorBase<ProjectHistoryRow> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof ProjectHistoryEditorDialog;
@@ -1067,19 +1026,6 @@ declare namespace SereneViewSample.ProjectMgnt {
         protected getLocalTextPrefix(): string;
         protected form: ProjectHistoryEditorForm;
         constructor();
-    }
-}
-declare namespace SereneViewSample.ProjectMgnt {
-    class VProjectDialog extends Serenity.EntityDialog<VProjectRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: VProjectForm;
     }
 }
 declare namespace SereneViewSample.ProjectMgnt {

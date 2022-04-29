@@ -42,22 +42,5 @@ namespace SereneViewSample.ProjectMgnt.Endpoints
         {
             return handler.Retrieve(connection, request);
         }
-
-        [HttpPost]
-        public ListResponse<MyRow> List(IDbConnection connection, ListRequest request,
-            [FromServices] IProjectListHandler handler)
-        {
-            return handler.List(connection, request);
-        }
-
-        public FileContentResult ListExcel(IDbConnection connection, ListRequest request,
-            [FromServices] IProjectListHandler handler,
-            [FromServices] IExcelExporter exporter)
-        {
-            var data = List(connection, request, handler).Entities;
-            var bytes = exporter.Export(data, typeof(Columns.ProjectColumns), request.ExportColumns);
-            return ExcelContentResult.Create(bytes, "ProjectList_" +
-                DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
-        }
     }
 }
