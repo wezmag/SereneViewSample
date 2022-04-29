@@ -1,6 +1,7 @@
 # Serene SQL View Sample
 
 This is a Serene project that uses SQL View as grid data source.
+
 When creating/editing entities, it will insert/update data into multiple tables.
 
 There are five tables and one view in this project:
